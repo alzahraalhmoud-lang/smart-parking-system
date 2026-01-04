@@ -1,0 +1,143 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Defines character encoding (supports most languages/symbols) -->
+  <meta charset="UTF-8" />
+
+  <!-- Makes the layout responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title shown in the browser tab -->
+  <title>Smart Parking System</title>
+
+  <!-- Link external CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- App container to center and control max width -->
+  <div class="app">
+    <!-- Header section -->
+    <header class="header">
+      <div>
+        <!-- Main title -->
+        <h1>Smart Parking System</h1>
+        <!-- Subtitle -->
+        <p class="muted">A simple parking lot simulator (P1–P20)</p>
+      </div>
+
+      <!-- Right side header actions -->
+      <div class="header-actions">
+        <!-- Theme-like indicator chip (just UI) -->
+        <span class="chip" aria-label="Status indicator">Live</span>
+      </div>
+    </header>
+
+    <!-- Top controls and counters -->
+    <section class="panel controls">
+      <!-- Counters row -->
+      <div class="counters" aria-label="Parking counters">
+        <div class="counter">
+          <span class="counter-label">Total</span>
+          <span id="totalCount" class="counter-value">20</span>
+        </div>
+
+        <div class="counter">
+          <span class="counter-label">Available</span>
+          <span id="availableCount" class="counter-value">0</span>
+        </div>
+
+        <div class="counter">
+          <span class="counter-label">Occupied</span>
+          <span id="occupiedCount" class="counter-value">0</span>
+        </div>
+      </div>
+
+      <!-- Inputs row: filter + search + action buttons -->
+      <div class="inputs" aria-label="Controls">
+        <!-- Filter dropdown -->
+        <label class="field">
+          <span class="field-label">Filter</span>
+          <select id="filterSelect" aria-label="Filter parking spots">
+            <option value="all">All</option>
+            <option value="available">Available</option>
+            <option value="occupied">Occupied</option>
+          </select>
+        </label>
+
+        <!-- Search input -->
+        <label class="field">
+          <span class="field-label">Search (Spot ID)</span>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="e.g., P7"
+            aria-label="Search spot by ID"
+          />
+        </label>
+
+        <!-- Select spot dropdown (for exit car / direct operations) -->
+        <label class="field">
+          <span class="field-label">Selected Spot</span>
+          <select id="spotSelect" aria-label="Selected spot">
+            <!-- Filled dynamically in JS -->
+          </select>
+        </label>
+
+        <!-- Action buttons -->
+        <div class="buttons" aria-label="Actions">
+          <button id="parkBtn" class="btn primary" type="button">Park Car</button>
+          <button id="exitBtn" class="btn" type="button">Exit Car</button>
+          <button id="resetBtn" class="btn danger" type="button">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main content: grid + activity log -->
+    <main class="main">
+      <!-- Parking grid panel -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Parking Lot</h2>
+          <p class="muted">Click a spot to toggle Available/Occupied</p>
+        </div>
+
+        <!-- Grid container where spots are rendered -->
+        <div id="grid" class="grid" aria-label="Parking spots grid"></div>
+
+        <!-- Small legend -->
+        <div class="legend" aria-label="Legend">
+          <span class="legend-item">
+            <span class="dot available"></span> Available
+          </span>
+          <span class="legend-item">
+            <span class="dot occupied"></span> Occupied
+          </span>
+          <span class="legend-item">
+            <span class="dot selected"></span> Selected
+          </span>
+        </div>
+      </section>
+
+      <!-- Activity log panel -->
+      <section class="panel log">
+        <div class="panel-header">
+          <h2>Activity Log</h2>
+          <button id="clearLogBtn" class="btn small" type="button">Clear Log</button>
+        </div>
+
+        <!-- List of log entries -->
+        <ul id="logList" class="log-list" aria-label="Activity log list"></ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer muted">
+      Built with HTML, CSS, and JavaScript • Data saved in localStorage
+    </footer>
+  </div>
+
+  <!-- Link external JS file -->
+  <script src="app.js"></script>
+</body>
+</html>

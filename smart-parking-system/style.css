@@ -1,0 +1,365 @@
+/* style.css */
+
+/* Basic reset for consistent sizing across elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Page background and default font */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b1220;
+  color: #eaf0ff;
+}
+
+/* App container: centered with max width */
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* Utility: muted text */
+.muted {
+  color: rgba(234, 240, 255, 0.7);
+}
+
+/* Header layout */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 4px 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 6px 0 0;
+}
+
+/* Small status chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 255, 170, 0.12);
+  border: 1px solid rgba(0, 255, 170, 0.25);
+  color: rgba(0, 255, 170, 0.95);
+  font-weight: 600;
+}
+
+/* Panel: reusable card style */
+.panel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Controls spacing */
+.controls {
+  margin-bottom: 16px;
+}
+
+/* Counters row */
+.counters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Each counter card */
+.counter {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.counter-label {
+  display: block;
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.7);
+  margin-bottom: 6px;
+}
+
+.counter-value {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* Inputs row (filter/search/selected spot/buttons) */
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+/* Field wrapper */
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.7);
+}
+
+/* Inputs and selects */
+input, select {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 18, 35, 0.85);
+  color: #eaf0ff;
+  outline: none;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Button base */
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eaf0ff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Button hover */
+.btn:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* Primary button */
+.btn.primary {
+  background: rgba(92, 140, 255, 0.20);
+  border-color: rgba(92, 140, 255, 0.35);
+}
+
+/* Danger button */
+.btn.danger {
+  background: rgba(255, 92, 92, 0.18);
+  border-color: rgba(255, 92, 92, 0.28);
+}
+
+/* Small button style */
+.btn.small {
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* Main layout: grid and log side by side on wide screens */
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+/* Panel header */
+.panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Parking grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Spot card */
+.spot {
+  user-select: none;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  display: grid;
+  gap: 8px;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+/* Small press effect */
+.spot:active {
+  transform: scale(0.98);
+}
+
+/* Spot title row */
+.spot-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Spot ID */
+.spot-id {
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+/* Status pill */
+.pill {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+/* Available styling */
+.spot.available {
+  border-color: rgba(0, 255, 170, 0.18);
+}
+
+.spot.available .pill {
+  background: rgba(0, 255, 170, 0.12);
+  border-color: rgba(0, 255, 170, 0.25);
+  color: rgba(0, 255, 170, 0.95);
+}
+
+/* Occupied styling */
+.spot.occupied {
+  border-color: rgba(255, 182, 92, 0.18);
+}
+
+.spot.occupied .pill {
+  background: rgba(255, 182, 92, 0.14);
+  border-color: rgba(255, 182, 92, 0.25);
+  color: rgba(255, 210, 150, 0.95);
+}
+
+/* Selected spot outline */
+.spot.selected {
+  outline: 2px solid rgba(92, 140, 255, 0.75);
+  outline-offset: 2px;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  color: rgba(234, 240, 255, 0.8);
+  font-size: 13px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Small colored dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.dot.available {
+  background: rgba(0, 255, 170, 0.9);
+}
+
+.dot.occupied {
+  background: rgba(255, 182, 92, 0.9);
+}
+
+.dot.selected {
+  background: rgba(92, 140, 255, 0.9);
+}
+
+/* Log panel sizing */
+.log {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 420px;
+}
+
+/* Log list */
+.log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  overflow: auto;
+}
+
+/* Log item */
+.log-item {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.log-item .time {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.65);
+  margin-bottom: 6px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 16px;
+  padding: 10px 4px;
+  font-size: 13px;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+  .inputs {
+    grid-template-columns: 1fr;
+  }
+  .buttons {
+    justify-content: flex-start;
+  }
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
